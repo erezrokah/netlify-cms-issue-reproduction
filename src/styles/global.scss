@@ -1,0 +1,125 @@
+html {
+    font-family: 'Inter', sans-serif;
+    font-display: swap;
+    letter-spacing: -0.011em;
+    font-size: 16px;
+    line-height: 1.5em;
+    font-weight: 400;
+    overflow-x: hidden;
+}
+html,
+body {
+    background: white;
+}
+
+a {
+    color: 'red';
+    color: currentColor;
+
+    // &:visited {
+    //     color: $eggplant-500;
+    // }
+}
+
+ul {
+    margin-left: 1.6em;
+
+    & li {
+        position: relative;
+        margin: 1.5em 0 0;
+        list-style: none;
+
+        &:before {
+            content: '';
+            position: absolute;
+            // top: 0.6em;
+            top: 0.9em;
+            left: -1.5em;
+            height: 0.16em;
+            width: 0.5em;
+            background: 'red';
+            border-radius: 0.15em;
+        }
+    }
+}
+
+ol {
+    counter-reset: item;
+    list-style-type: none;
+    margin-left: 1.6em;
+    padding-left: 0;
+
+    & li {
+        list-style: inherit;
+        position: relative;
+        margin: 1.5em 0 0;
+
+        &::before {
+            content: '';
+            color: 'red';
+            padding: 0;
+            position: absolute;
+            counter-increment: item;
+            font-weight: 500;
+            left: -1.5em;
+            width: 0.5em;
+        }
+    }
+}
+
+//Animations (tbd sprout)
+@keyframes popUpSmall {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 0.5em, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes popUpBig {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 1.25em, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/*
+An workaround for forcing accessibility wrappers
+to have a 100% height.
+Reach Router issue here: https: //github.com/reach/router/issues/63
+*/
+#___gatsby,
+div[role='group'][tabindex] {
+    height: 100%;
+    min-height: 100% !important;
+}
+
+// .intercom-namespace .intercom-app {
+//     opacity: 0;
+//     pointer-events: none;
+//     transition: opacity 0.3s ease-out;
+// }
+
+// body #intercom-container .intercom-launcher-discovery-frame,
+// body #intercom-container .intercom-launcher-frame {
+
+//     @media only screen and (max-device-width: 667px),
+//         screen and (max-width: 450px) {
+//         bottom: 60px !important;
+//         right: 10px !important;
+//     }
+// }
+
+// .body--is-scrolled-far {
+//     .intercom-namespace .intercom-app {
+//         opacity: 1;
+//         pointer-events: all;
+//     }
+// }
